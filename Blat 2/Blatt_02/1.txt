@@ -1,0 +1,49 @@
+import pandas as pd
+
+# a) DataFrame erstellen
+# df = pd.DataFrame(data, index=[...])
+# - data: ein Dictionary oder Liste von Listen/Zeilen
+# - index: Liste der Index-Namen
+#data = {
+  #  'gewicht': pd.Series([70, 80, 60]),
+ #   'größe': pd.Series([1.75, 1.80, 1.65])
+#}
+#df = pd.DataFrame(data, index=['Anna', 'Bernd', 'Clara'])
+data= {
+    'Berlin': pd.Series([891.85,"Deutschland",3562166],
+                        index=['area','country',"population"]),
+    'Wien': pd.Series([414.6,"Östereich",1805681],
+                      index=['area','country',"population"]),
+    'Zürich': pd.Series([87.88,"Schweiz",378884],
+                        index=['area','country',"population"]),
+
+}
+
+data2= {
+    "area": [891.85,414.6,87.88],
+    "country": ["Deutschland","Östereich","Schweiz"],
+    "population": [414.6,87.88,378884],
+
+}
+df = pd.DataFrame(data,index=['area','country','population'])
+print("----- A -----")
+print(df.stack())
+print("----- B -----")
+# df.sort_index()  # sortiert standardmäßig aufsteigend nach Index
+# df.sort_index(ascending=False)  # absteigend
+df.sort_index()
+print(df.stack())
+print("----- C -----")
+df = df.stack()
+df = df.swaplevel()
+df = df.sort_index()
+print(df)
+print("----- C -----")
+
+
+
+
+# c) Indizes vertauschen und neu sortieren
+# df.reindex(new_index_list)  # neue Reihenfolge der Indizes
+# df.sort_index()  # optional danach wieder sortieren
+

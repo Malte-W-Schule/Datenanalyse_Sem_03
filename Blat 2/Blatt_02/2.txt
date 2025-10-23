@@ -1,0 +1,35 @@
+import pandas as pd
+from pandas.core.interchange.dataframe_protocol import Column
+
+def bmi(gewicht,größe):
+    wert = (gewicht / ((größe/100)*(größe/100)))
+
+    return wert
+
+People= {
+    "Henry":[65,179],
+    "Sarah":[58,165],
+    "Elke" :[58,172],
+    "Lulu" :[45,154],
+    "Vera" :[43,150],
+    "Toni" :[99,189],
+    "Maria":[68,176],
+    "Chris":[60,175]
+
+}
+
+df = pd.DataFrame(People,index=['Gewicht','Größe'],).T #.T = Transpose = drehen
+print(df)
+# Beispiel: Größe von Henry ausgeben
+bm =bmi(df.loc['Henry', 'Gewicht'],df.loc['Henry', 'Größe'])
+print("--- BMI ---")
+print( bm )
+df[ (bmi(df["Gewicht"],df["Größe"]) >18.5) | (bmi(df["Gewicht"],df["Größe"]) <25) ]
+
+print("--- 2 C) ---")
+
+e= df[df.index.str.contains("e", case=False)]
+print(e)
+print("--- 2 d) ---")
+df["BMI"] = bmi(df["Gewicht"], df["Größe"])
+print(df)
