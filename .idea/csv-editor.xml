@@ -38,7 +38,21 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\Blatt 8\rawdata_luftqualitaet (1).csv">
+        <entry key="\Blatt 8\rawdata_luftqualitaet.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Blatt 9\Patos Lösung\pvtest.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\aufgaben\pvtest.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
